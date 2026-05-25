@@ -1202,24 +1202,47 @@
         font-size: 1rem !important;
       }
     }
-  /* =========================================================
-   BLOCK 107 START: LA PRICING CTA + FINAL HEADLINE POLISH
+ /* =========================================================
+   BLOCK 107 START: LA CASINO CTA EQUAL BUTTON SIZE FIX
+   Purpose:
+   - Forces Sales Agent and Free Quote to match size
+   - Overrides older mobile pricing-card quote button rule
+   - Works on mobile stacked layout and desktop side-by-side layout
    ========================================================= */
-#lvpt-corporate-events .lvpt-casino-action-buttons > a {
+
+#lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons {
+  display: flex !important;
   width: 100% !important;
+  align-items: stretch !important;
+}
+
+#lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons > a,
+#lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons > a[href="#quote-builder"],
+#lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons > a[href^="tel:"] {
+  flex: 1 1 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   min-height: 3rem !important;
+
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+
+  padding: 0.75rem 1rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
   text-align: center !important;
   white-space: nowrap !important;
-  flex: 1 1 0 !important;
   box-sizing: border-box !important;
 }
 
 @media (min-width: 640px) {
-  #lvpt-corporate-events .lvpt-casino-action-buttons > a {
-    width: auto !important;
+  #lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons > a,
+  #lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons > a[href="#quote-builder"],
+  #lvpt-corporate-events .pricing-card .lvpt-casino-action-buttons > a[href^="tel:"] {
+    width: 50% !important;
   }
 }
 /* BLOCK 107 END */
