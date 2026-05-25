@@ -1202,6 +1202,27 @@
         font-size: 1rem !important;
       }
     }
+  /* =========================================================
+   BLOCK 107 START: LA PRICING CTA + FINAL HEADLINE POLISH
+   ========================================================= */
+#lvpt-corporate-events .lvpt-casino-action-buttons > a {
+  width: 100% !important;
+  min-height: 3rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  flex: 1 1 0 !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 640px) {
+  #lvpt-corporate-events .lvpt-casino-action-buttons > a {
+    width: auto !important;
+  }
+}
+/* BLOCK 107 END */
     /* BLOCK 106 END */
 
 </style>
@@ -2450,7 +2471,7 @@
               <li>✓ Specific venues included</li>
             </ul>
            <a href="https://pokertraininglasvegas.com/corporate-events/?source=city-page-vegas-card#quote-builder" class="block mt-6 text-center border border-[var(--city-gradient-secondary)] text-[var(--city-gradient-secondary)] py-2 px-6 rounded-full font-semibold hover:bg-[var(--city-gradient-secondary)]/10">
-  Request a Las Vegas Event Quote
+  Request a Vegas Event Quote
             </a>
           </div>
           <!-- Center card: MOBILE · Los Angeles (highlighted, badge changed) -->
@@ -2465,27 +2486,28 @@
               <li>✓ Cards & chips included</li>
               <li>✓ Flight & hotel not included</li>
             </ul>
-            <a href="#quote-builder" class="block mt-6 text-center bg-[var(--city-gradient-secondary)] text-white font-bold py-2 px-6 rounded-full hover:bg-[var(--city-secondary-dark)]">Request a Los Angeles Event Quote</a>
+            <a href="#quote-builder" class="block mt-6 text-center bg-[var(--city-gradient-secondary)] text-white font-bold py-2 px-6 rounded-full hover:bg-[var(--city-secondary-dark)]">Request an LA Event Quote</a>
           </div>
           <!-- Right card: Casino Night CTA -->
-          <div class="pricing-card border border-white/10 rounded-2xl p-6 bg-[#131313] flex flex-col items-center order-2 md:order-3">
-            <span class="text-2xl mb-2">🎲 🎰</span>
-            <h3 class="text-2xl font-bebas text-white">High‑Energy Casino Night</h3>
-            <p class="text-sm text-gray-300 mt-3">Full tables, professional dealers, blackjack, roulette, craps, poker – we bring the Vegas experience directly to you, or provide complete venue setup. Perfect for fundraisers, holiday parties, and corporate celebrations or events.</p>
-            <div class="flex flex-col sm:flex-row gap-3 mt-5 w-full">
-              <a href="tel:+17253074477" class="flex-1 btn-outline py-2 px-4 justify-center">
-                <svg class="lvpt-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v4a2 2 0 0 0 2 2h2v-6H6a2 2 0 0 0-2 2"></path><path d="M20 12v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2"></path><path d="M14 20h2a4 4 0 0 0 4-4"></path></svg> Sales Agent
-              </a>
-              <a href="#quote-builder" class="flex-1 bg-[var(--city-gradient-secondary)] text-white font-bold py-2 px-4 rounded-full justify-center flex items-center gap-2 hover:bg-[var(--city-secondary-dark)]">
-                <svg class="lvpt-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 6h10"></path><path d="M4 10h8"></path><path d="M4 14h6"></path><path d="M14 19l5-5 2 2-5 5h-2z"></path></svg> Free Quote
-              </a>
-            </div>
-          </div>
-        </div>
-        <p class="text-center text-xs text-gray-500 mt-6">* Final pricing may vary based on city, travel, venue access, guest count, number of instructors, number of tables, event format, timing, food and beverage needs, and production logistics.</p>
-      </div>
-    </div>
-    <!-- BLOCK 18 END -->
+<div class="pricing-card border border-white/10 rounded-2xl p-6 bg-[#131313] flex flex-col items-center order-2 md:order-3">
+  <span class="text-2xl mb-2">🎲 🎰</span>
+  <h3 class="text-2xl font-bebas text-white">High-Energy Casino Night</h3>
+
+  <p class="text-sm text-gray-300 mt-3">
+    Full tables, professional dealers, blackjack, roulette, craps, poker – we bring the Vegas experience directly to you, or provide complete venue setup. Perfect for fundraisers, holiday parties, and corporate celebrations or events.
+  </p>
+
+  <!-- CHANGE THIS DIV LINE ONLY -->
+  <div class="lvpt-casino-action-buttons flex flex-col sm:flex-row gap-3 mt-5 w-full">
+    <a href="tel:+17253074477" class="flex-1 btn-outline py-2 px-4 justify-center">
+      <svg class="lvpt-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v4a2 2 0 0 0 2 2h2v-6H6a2 2 0 0 0-2 2"></path><path d="M20 12v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2"></path><path d="M14 20h2a4 4 0 0 0 4-4"></path></svg> Sales Agent
+    </a>
+
+    <a href="#quote-builder" class="flex-1 bg-[var(--city-gradient-secondary)] text-white font-bold py-2 px-4 rounded-full justify-center flex items-center gap-2 hover:bg-[var(--city-secondary-dark)]">
+      <svg class="lvpt-icon " aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 6h10"></path><path d="M4 10h8"></path><path d="M4 14h6"></path><path d="M14 19l5-5 2 2-5 5h-2z"></path></svg> Free Quote
+    </a>
+  </div>
+</div>
 
     <!-- =================================================================
      BLOCK 19 START: QUOTE BUILDER (Los Angeles – WITH "WHERE ARE YOU AT" QUESTION)
@@ -2652,7 +2674,11 @@
          ================================================================= -->
     <div class="full-bleed bg-[#0e0e0e] py-16 text-center lvpt-below-fold-optimize">
       <div class="section-inner max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-bebas gold-text mb-6 text-center">Ready to Build a Better Los Angeles Corporate Event?</h2>
+       <h2 class="text-4xl md:text-5xl font-bebas text-white mb-6 text-center">
+  <span class="text-white">Ready to Build </span>
+  <span class="gradient-text">a Better Los Angeles Corporate Event</span>
+  <span class="text-white">?</span>
+</h2>
         <p class="text-gray-300 text-lg mb-8">Tell us your guest count, event goal, location, and timeline. We will help shape the right poker training, team building, casino night, or client entertainment experience for your group.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#quote-builder" class="btn-primary final-cta-btn">Build My Event</a>
