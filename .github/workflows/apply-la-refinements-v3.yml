@@ -1,0 +1,87 @@
+name: Apply LA page refinements v3
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - trigger-la-refinements.txt
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Patch Los Angeles page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          text = text.replace('Request a Los Angeles Event Quote', 'Request an LA Event Quote')
+          text = text.replace('Request a Las Vegas Event Quote', 'Request a Vegas Event Quote')
+          text = text.replace('Request a Las Vegas Quote', 'Request a Vegas Event Quote')
+          text = text.replace('Request a Los Angeles Quote', 'Request an LA Event Quote')
+
+          text = text.replace(
+            '<div class="flex flex-col sm:flex-row gap-3 mt-5 w-full">\n              <a href="tel:+17253074477" class="flex-1 btn-outline py-2 px-4 justify-center">',
+            '<div class="lvpt-casino-action-buttons flex flex-col sm:flex-row gap-3 mt-5 w-full">\n              <a href="tel:+17253074477" class="flex-1 btn-outline py-2 px-4 justify-center">'
+          )
+
+          old_h2 = '<h2 class="text-4xl md:text-5xl font-bebas gold-text mb-6 text-center">Ready to Build a Better Los Angeles Corporate Event?</h2>'
+          new_h2 = '<h2 class="text-4xl md:text-5xl font-bebas text-white mb-6 text-center"><span class="text-white">Ready to Build </span><span class="gradient-text">a Better Los Angeles Corporate Event</span><span class="text-white">?</span></h2>'
+          text = text.replace(old_h2, new_h2)
+
+          css_patch = '''
+
+    /* =========================================================
+       BLOCK 107 START: LA PRICING CTA + FINAL HEADLINE POLISH
+       Purpose:
+       - Keeps casino Sales Agent and Free Quote CTAs equal size
+       - Prevents pricing CTA overflow on mobile
+       ========================================================= */
+    #lvpt-corporate-events .lvpt-casino-action-buttons > a {
+      width: 100% !important;
+      min-height: 3rem !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      flex: 1 1 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (min-width: 640px) {
+      #lvpt-corporate-events .lvpt-casino-action-buttons > a {
+        width: auto !important;
+      }
+    }
+    /* BLOCK 107 END */
+'''
+          if 'BLOCK 107 START: LA PRICING CTA + FINAL HEADLINE POLISH' not in text:
+              text = text.replace('    /* BLOCK 106 END */', css_patch + '\n    /* BLOCK 106 END */', 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit patch
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Apply LA CTA and headline refinements"
+          git push
